@@ -22,7 +22,8 @@
     </bean>
 
     <bean id="musicPlayer"
-        class="makeev.springcourse.MusicPlayer">
+        class="makeev.springcourse.MusicPlayer"
+        scope="prototype">
         <property name="music">
             <list>
                 <ref bean="rapMusic"/>
