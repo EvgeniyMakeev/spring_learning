@@ -11,4 +11,9 @@
           class="makeev.springcourse.ClassicalMusic">
     </bean>
 
+    <bean id="musicPlayer"
+        class="makeev.springcourse.MusicPlayer">
+        <constructor-arg ref="musicBean"/>
+    </bean>
+
 </beans>
