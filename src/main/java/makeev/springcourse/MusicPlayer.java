@@ -1,18 +1,25 @@
 package makeev.springcourse;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class MusicPlayer {
 
-    private Music music;
+    private ClassicalMusic classicalMusic;
+    private RockMusic rockMusic;
+    private RapMusic rapMusic;
 
-    public MusicPlayer(Music music) {
-        this.music = music;
+    @Autowired
+    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic, RapMusic rapMusic) {
+        this.classicalMusic = classicalMusic;
+        this.rockMusic = rockMusic;
+        this.rapMusic = rapMusic;
     }
 
-    public void setMusic(Music music) {
-        this.music = music;
-    }
-
-    public void playMusic() {
-        System.out.println("Playing: " + music.getSong());
+    public String playMusic() {
+        return "Playing: " + classicalMusic.getSong() +
+                "\nPlaying: " + rockMusic.getSong() +
+                "\nPlaying: " + rapMusic.getSong();
     }
 }
