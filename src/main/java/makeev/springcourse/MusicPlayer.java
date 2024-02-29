@@ -1,25 +1,28 @@
 package makeev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Component
 public class MusicPlayer {
+    private List<Music> musicList;
 
-    private ClassicalMusic classicalMusic;
-    private RockMusic rockMusic;
-    private RapMusic rapMusic;
-
-    @Autowired
-    public MusicPlayer(ClassicalMusic classicalMusic, RockMusic rockMusic, RapMusic rapMusic) {
-        this.classicalMusic = classicalMusic;
-        this.rockMusic = rockMusic;
-        this.rapMusic = rapMusic;
+    public MusicPlayer(@Qualifier("classicalMusic") Music music1,
+                       @Qualifier("rockMusic") Music music2,
+                       @Qualifier("rapMusic") Music music3) {
+        musicList = new ArrayList<>();
+        musicList.add(music1);
+        musicList.add(music2);
+        musicList.add(music3);
     }
 
     public String playMusic() {
-        return "Playing: " + classicalMusic.getSong() +
-                "\nPlaying: " + rockMusic.getSong() +
-                "\nPlaying: " + rapMusic.getSong();
+        StringBuilder stringBuilder = new StringBuilder();
+        musicList.forEach(m -> stringBuilder.append("\nPlaying: ").append(m.getSong()));
+        return stringBuilder.toString();
     }
 }
