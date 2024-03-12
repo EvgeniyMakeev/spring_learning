@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="70aece9a-dd23-4332-ae71-a6976d9da603" name="Changes" comment="Start with XML">
-      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/ClassicalMusic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/Music.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/MusicPlayer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/RockMusic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/UseMusicPlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/TestBean.java" beforeDir="false" />
+    <list default="true" id="70aece9a-dd23-4332-ae71-a6976d9da603" name="Changes" comment="Dependency Injection list with annotation @Qualifier and XML">
+      <change afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/Genres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/ClassicalMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/ClassicalMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/Computer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/Music.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/Music.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/MusicPlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/MusicPlayer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/RapMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/RapMusic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/RockMusic.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/RockMusic.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/makeev/springcourse/TestSpring.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/makeev/springcourse/TestSpring.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/applicationContext.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,6 +25,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -39,24 +40,50 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "aspect.path.notification.shown": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gospo/OneDrive/Документы/GitHub/learningSpring",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;aspect.path.notification.shown&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gospo/OneDrive/Документы/GitHub/learningSpring&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;87a89bb6fba076fd4bf1eb923a3d87be&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="makeev.springcourse" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestSpring" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="makeev.springcourse.TestSpring" />
+      <module name="spring_learning" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="makeev.springcourse.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestSpring" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -65,7 +92,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1708958581346</updated>
-      <workItem from="1708958583876" duration="4773000" />
+      <workItem from="1708958583876" duration="19698000" />
+      <workItem from="1709735782131" duration="661000" />
+      <workItem from="1710257592047" duration="2957000" />
     </task>
     <task id="LOCAL-00001" summary="Start with XML">
       <option name="closed" value="true" />
@@ -75,7 +104,71 @@
       <option name="project" value="LOCAL" />
       <updated>1708962290040</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Manual Dependency Injection with XML">
+      <option name="closed" value="true" />
+      <created>1709014492917</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709014492958</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Dependency Injection with Spring with XML">
+      <option name="closed" value="true" />
+      <created>1709015106671</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709015106671</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Dependency Injection with setter with XML and properties">
+      <option name="closed" value="true" />
+      <created>1709023137382</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1709023137382</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Dependency Injection list with setter with XML and properties">
+      <option name="closed" value="true" />
+      <created>1709027845342</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709027845342</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Dependency Injection list with setter and scope prototype with XML and properties">
+      <option name="closed" value="true" />
+      <created>1709031361262</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709031361262</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Dependency Injection list with annotation and XML">
+      <option name="closed" value="true" />
+      <created>1709126099071</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709126099071</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Dependency Injection list with annotation and XML">
+      <option name="closed" value="true" />
+      <created>1709128385054</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709128385055</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Dependency Injection list with annotation @Qualifier and XML">
+      <option name="closed" value="true" />
+      <created>1709177938032</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709177938032</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -94,6 +187,24 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Start with XML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Start with XML" />
+    <MESSAGE value="Manual Dependency Injection with XML" />
+    <MESSAGE value="Dependency Injection with Spring with XML" />
+    <MESSAGE value="Dependency Injection with setter with XML and properties" />
+    <MESSAGE value="Dependency Injection list with setter with XML and properties" />
+    <MESSAGE value="Dependency Injection list with setter and scope prototype with XML and properties" />
+    <MESSAGE value="Dependency Injection list with annotation and XML" />
+    <MESSAGE value="Dependency Injection list with annotation @Qualifier and XML" />
+    <option name="LAST_COMMIT_MESSAGE" value="Dependency Injection list with annotation @Qualifier and XML" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/makeev/springcourse/TestSpring.java</url>
+          <line>4</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

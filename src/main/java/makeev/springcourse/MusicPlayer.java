@@ -1,28 +1,36 @@
 package makeev.springcourse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 @Component
 public class MusicPlayer {
-    private List<Music> musicList;
 
-    public MusicPlayer(@Qualifier("classicalMusic") Music music1,
-                       @Qualifier("rockMusic") Music music2,
-                       @Qualifier("rapMusic") Music music3) {
-        musicList = new ArrayList<>();
-        musicList.add(music1);
-        musicList.add(music2);
-        musicList.add(music3);
+    private final RockMusic rockMusic;
+    private final RapMusic rapMusic;
+    private final ClassicalMusic classicalMusic;
+
+    @Autowired
+    public MusicPlayer(RockMusic rockMusic, RapMusic rapMusic, ClassicalMusic classicalMusic) {
+        this.rockMusic = rockMusic;
+        this.rapMusic = rapMusic;
+        this.classicalMusic = classicalMusic;
     }
 
-    public String playMusic() {
-        StringBuilder stringBuilder = new StringBuilder();
-        musicList.forEach(m -> stringBuilder.append("\nPlaying: ").append(m.getSong()));
-        return stringBuilder.toString();
+    public void playMusic(Genres genres) {
+        List<String> playlist = new ArrayList<>();
+        switch (genres) {
+            case RAP -> playlist = rapMusic.getSongs();
+            case ROCK -> playlist = rockMusic.getSongs();
+            case CLASSICAL -> playlist = classicalMusic.getSongs();
+        }
+        Random random = new Random();
+        int track = random.nextInt(playlist.size());
+        System.out.println("Playing: " + playlist.get(track));
     }
 }
