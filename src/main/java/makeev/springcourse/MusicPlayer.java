@@ -1,6 +1,5 @@
 package makeev.springcourse;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class MusicPlayer {
     private final RapMusic rapMusic;
     private final ClassicalMusic classicalMusic;
 
-    @Autowired
+
     public MusicPlayer(RockMusic rockMusic, RapMusic rapMusic, ClassicalMusic classicalMusic) {
         this.rockMusic = rockMusic;
         this.rapMusic = rapMusic;
