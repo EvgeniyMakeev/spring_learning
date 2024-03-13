@@ -1,34 +1,24 @@
 package makeev.springcourse;
 
-import org.springframework.stereotype.Component;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 
-@Component
 public class MusicPlayer {
+    private final List<Music> playList;
 
-    private final RockMusic rockMusic;
-    private final RapMusic rapMusic;
-    private final ClassicalMusic classicalMusic;
-
-
-    public MusicPlayer(RockMusic rockMusic, RapMusic rapMusic, ClassicalMusic classicalMusic) {
-        this.rockMusic = rockMusic;
-        this.rapMusic = rapMusic;
-        this.classicalMusic = classicalMusic;
+    public MusicPlayer(Music music1, Music music2, Music music3) {
+        playList = new ArrayList<>();
+        playList.add(music1);
+        playList.add(music2);
+        playList.add(music3);
     }
 
-    public void playMusic(Genres genres) {
-        List<String> playlist = new ArrayList<>();
-        switch (genres) {
-            case RAP -> playlist = rapMusic.getSongs();
-            case ROCK -> playlist = rockMusic.getSongs();
-            case CLASSICAL -> playlist = classicalMusic.getSongs();
-        }
+    public void playMusic() {
         Random random = new Random();
+        int genre = random.nextInt(playList.size());
+        List<String> playlist = playList.get(genre).getSongs();
         int track = random.nextInt(playlist.size());
         System.out.println("Playing: " + playlist.get(track));
     }

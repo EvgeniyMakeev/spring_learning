@@ -1,11 +1,9 @@
 package makeev.springcourse;
 
-import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
 public class RapMusic implements Music {
 
     private final List<String> playList = new ArrayList<>();
